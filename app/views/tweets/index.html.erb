@@ -1,24 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Tweets</h1>
+<h1 class='text-center font-weight-bold'>Tweets</h1>
 
 <table>
   <thead>
-    <tr>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
+  
   </thead>
 
   <tbody>
+  
     <% @tweets.each do |tweet| %>
-      <tr>
-        <td><%= tweet.content %></td>
-        <td><%= tweet.title %></td>
-        <td><%= link_to 'Show', tweet %></td>
-        <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
-        <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="jumbotron">
+        <h1 class="display-4"><%= tweet.title %></h1>
+        <p class="lead"><%= tweet.content %></p>
+        <hr class="my-4">
+        <a class="btn btn-primary btn-lg" <%= link_to 'Show', tweet %></a>
+        <a class="btn btn-primary btn-lg" <%= link_to 'Edit', edit_tweet_path(tweet) %></a>
+        <a class="btn btn-primary btn-lg" <%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+      </div>
     <% end %>
   </tbody>
 </table>
